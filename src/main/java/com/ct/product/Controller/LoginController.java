@@ -1,5 +1,6 @@
 package com.ct.product.Controller;
 
+import com.ct.product.DTO.LoginRequestDTO;
 import com.ct.product.Service.LoginService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,8 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        return loginService.login(username, password);
+    public String login(@RequestBody LoginRequestDTO loginRequest) {
+        return loginService.login(loginRequest.getUsername(), loginRequest.getPassword());
     }
 
 }
